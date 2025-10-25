@@ -92,7 +92,7 @@ include '../includes/header.php';
         
         <div style="color: #888; font-size: 0.9em;">
             <p><strong>Created:</strong> <?php echo date('F j, Y g:i A', strtotime($contact['created_at'])); ?></p>
-            <?php if (!empty($contact['updated_at']) && $contact['updated_at'] != '0000-00-00 00:00:00'): ?>
+            <?php if (!empty($contact['updated_at']) && $contact['updated_at'] != '0000-00-00 00:00:00' && $contact['updated_at'] != $contact['created_at']): ?>
                 <p><strong>Last Updated:</strong> <?php echo date('F j, Y g:i A', strtotime($contact['updated_at'])); ?></p>
             <?php else: ?>
                 <p><strong>Last Updated:</strong> Never modified</p>

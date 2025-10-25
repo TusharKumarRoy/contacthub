@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // UPDATE contact
         $sql_update = "UPDATE contacts 
                        SET first_name = ?, last_name = ?, email = ?, phone = ?, 
-                           company = ?, notes = ?, is_favorite = ?
+                           company = ?, notes = ?, is_favorite = ?, updated_at = NOW()
                        WHERE contact_id = ? AND user_id = ?";
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param("ssssssiii", $first_name, $last_name, $email, $phone, 

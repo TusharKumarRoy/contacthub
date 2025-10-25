@@ -195,7 +195,6 @@ LEFT JOIN contact_group_members cgm
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Company</th>
-                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -211,7 +210,6 @@ LEFT JOIN contact_group_members cgm
                             <td><?php echo htmlspecialchars($contact['email'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($contact['phone'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($contact['company'] ?? 'N/A'); ?></td>
-                            <td><span class="badge badge-group">Active</span></td>
                             <td>
                                 <a href="view.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-view">View</a>
                                 <a href="edit.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-edit">Edit</a>

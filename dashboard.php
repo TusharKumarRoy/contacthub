@@ -29,7 +29,7 @@ $stmt->execute();
 $total_groups = $stmt->get_result()->fetch_assoc()['total'];
 
 // Get recent contacts (ORDER BY with LIMIT)
-$sql_recent = "SELECT contact_id, first_name, last_name, company, phone, is_favorite 
+$sql_recent = "SELECT contact_id, first_name, last_name, email, company, phone, is_favorite 
                FROM contacts 
                WHERE user_id = ? 
                ORDER BY created_at DESC 
@@ -119,7 +119,7 @@ WHERE user_id = ?
             <div class="sql-tooltip">-- SQL Concept: ORDER BY + LIMIT
 
 SELECT contact_id, first_name, last_name, 
-       company, phone, is_favorite 
+       email, company, phone, is_favorite 
 FROM contacts 
 WHERE user_id = ? 
 ORDER BY created_at DESC 
@@ -136,9 +136,9 @@ LIMIT 5
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Company</th>
+                        <th>Email</th>
                         <th>Phone</th>
-                        <th>Status</th>
+                        <th>Company</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -151,12 +151,13 @@ LIMIT 5
                                     <span class="badge badge-favorite">⭐</span>
                                 <?php endif; ?>
                             </td>
-                            <td><?php echo htmlspecialchars($contact['company'] ?? 'N/A'); ?></td>
+                            <td><?php echo htmlspecialchars($contact['email'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($contact['phone'] ?? 'N/A'); ?></td>
-                            <td><span class="badge badge-group">Active</span></td>
+                            <td><?php echo htmlspecialchars($contact['company'] ?? 'N/A'); ?></td>
                             <td>
                                 <a href="contacts/view.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-view">View</a>
                                 <a href="contacts/edit.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-edit">Edit</a>
+                                <a href="contacts/delete.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-delete">Delete</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
