@@ -86,6 +86,30 @@ include '../includes/header.php';
         
         <!-- Available Contacts (NOT IN group) -->
         <div class="table-container">
+<<<<<<< HEAD
+=======
+            <div class="sql-info-icon">
+                ℹ️
+                <div class="sql-tooltip">
+                    <span class="sql-label">SQL Concept: NOT IN (Subquery)</span>
+                    <div class="sql-query">-- Find contacts NOT already in this group
+SELECT c.contact_id, c.first_name, 
+       c.last_name, c.company
+FROM contacts c
+WHERE c.user_id = ? 
+  AND c.contact_id NOT IN (
+    SELECT contact_id 
+    FROM contact_group_members 
+    WHERE group_id = ?
+  )
+ORDER BY c.first_name, c.last_name
+
+-- Subquery returns all contact_ids in the group
+-- NOT IN excludes those contacts</div>
+                </div>
+            </div>
+            
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             <h2>Available Contacts (<?php echo $available_contacts->num_rows; ?>)</h2>
             
             <?php if ($available_contacts->num_rows > 0): ?>
@@ -121,6 +145,27 @@ include '../includes/header.php';
         
         <!-- Current Members (IN group) -->
         <div class="table-container">
+<<<<<<< HEAD
+=======
+            <div class="sql-info-icon">
+                ℹ️
+                <div class="sql-tooltip">
+                    <span class="sql-label">SQL Concept: INNER JOIN</span>
+                    <div class="sql-query">-- Get contacts that ARE in this group
+SELECT c.contact_id, c.first_name, 
+       c.last_name, c.company
+FROM contacts c
+INNER JOIN contact_group_members cgm 
+  ON c.contact_id = cgm.contact_id
+WHERE cgm.group_id = ?
+ORDER BY c.first_name, c.last_name
+
+-- INNER JOIN returns only matching records
+-- Only contacts with group membership appear</div>
+                </div>
+            </div>
+            
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             <h2>Current Members (<?php echo $current_members->num_rows; ?>)</h2>
             
             <?php if ($current_members->num_rows > 0): ?>
@@ -156,6 +201,34 @@ include '../includes/header.php';
         
     </div>
     
+<<<<<<< HEAD
+=======
+    <div style="margin-top: 30px; padding: 15px; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 8px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="inline-sql-info">
+                ℹ️
+                <div class="sql-tooltip">
+                    <span class="sql-label">SQL Concepts: INSERT IGNORE & DELETE</span>
+                    <div class="sql-query">-- Add contact to group (prevent duplicates)
+INSERT IGNORE INTO contact_group_members 
+  (contact_id, group_id) 
+VALUES (?, ?)
+
+-- Remove contact from group
+DELETE FROM contact_group_members 
+WHERE contact_id = ? 
+  AND group_id = ?
+
+-- INSERT IGNORE skips if record exists
+-- Many-to-many junction table</div>
+                </div>
+            </div>
+            <strong style="color: #065f46;">💡 Junction Table Operations</strong>
+        </div>
+        <p style="margin: 10px 0 0 0; color: #047857;">Adding/removing contacts modifies the <code>contact_group_members</code> junction table that connects contacts with groups.</p>
+    </div>
+    
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
     <div style="margin-top: 20px;">
         <a href="list.php" class="btn-small btn-view">← Back to Groups</a>
     </div>

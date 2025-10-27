@@ -34,6 +34,7 @@ include '../includes/header.php';
 	<p>Search contacts (name, email, phone, company or group).</p>
 
 	<div class="table-container" style="margin-bottom: 20px;">
+<<<<<<< HEAD
 		<form method="GET" action="">
 			<div style="display:flex; gap:10px; align-items:center;">
 				<input type="text" name="q" value="<?php echo htmlspecialchars($q); ?>" placeholder="Search..." style="flex:1; padding:8px;">
@@ -84,3 +85,31 @@ include '../includes/header.php';
 
 <?php include '../includes/footer.php'; ?>
 
+=======
+        <div class="sql-info-icon">
+            ℹ️
+            <div class="sql-tooltip">
+                <span class="sql-label">SQL Concepts: LIKE with Wildcards + OR Conditions</span>
+                <div class="sql-query">SELECT DISTINCT c.contact_id, c.first_name, 
+       c.last_name, c.email, c.phone, c.company
+FROM contacts c
+LEFT JOIN contact_group_members cgm 
+  ON c.contact_id = cgm.contact_id
+LEFT JOIN contact_groups_table g 
+  ON cgm.group_id = g.group_id AND g.user_id = ?
+WHERE c.user_id = ? 
+  AND (
+    c.first_name LIKE ? OR 
+    c.last_name LIKE ? OR 
+    c.email LIKE ? OR 
+    c.phone LIKE ? OR 
+    c.company LIKE ? OR 
+    g.group_name LIKE ?
+  )
+ORDER BY c.first_name, c.last_name
+
+-- LIKE: Pattern matching with wildcards
+-- %search%: Matches anywhere in the string
+-- OR: Returns rows matching ANY condition
+-- DISTINCT: Removes duplicate contacts
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
