@@ -1,9 +1,12 @@
 <?php
+// Load environment configuration
+$config = require __DIR__ . '/.env.php';
+
 // Database configuration
-define('DB_HOST', 'localhost');
-define('DB_USER', 'tusharkumarroy');
-define('DB_PASS', 'ramanujan_');
-define('DB_NAME', 'contacthub_database');
+define('DB_HOST', $config['DB_HOST']);
+define('DB_USER', $config['DB_USER']);
+define('DB_PASS', $config['DB_PASS']);
+define('DB_NAME', $config['DB_NAME']);
 
 // Create connection
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
