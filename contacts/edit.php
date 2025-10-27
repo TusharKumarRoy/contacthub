@@ -50,6 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $is_favorite = isset($_POST['is_favorite']) ? 1 : 0;
     $selected_groups = isset($_POST['groups']) ? $_POST['groups'] : [];
     
+<<<<<<< HEAD
+    if (empty($first_name) || empty($last_name)) {
+        $error = "First name and last name are required!";
+=======
     // Convert empty strings to NULL for optional fields only
     $company = empty($company) ? NULL : $company;
     $notes = empty($notes) ? NULL : $notes;
@@ -62,11 +66,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Please enter a valid email address with @ symbol!";
     } elseif (empty($phone)) {
         $error = "Phone number is required!";
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
     } else {
         // UPDATE contact
         $sql_update = "UPDATE contacts 
                        SET first_name = ?, last_name = ?, email = ?, phone = ?, 
+<<<<<<< HEAD
+                           company = ?, notes = ?, is_favorite = ?
+=======
                            company = ?, notes = ?, is_favorite = ?, updated_at = NOW()
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                        WHERE contact_id = ? AND user_id = ?";
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param("ssssssiii", $first_name, $last_name, $email, $phone, 
@@ -115,6 +124,8 @@ include '../includes/header.php';
     <?php endif; ?>
     
     <div class="table-container">
+<<<<<<< HEAD
+=======
         <div class="sql-info-icon">
             ℹ️
             <div class="sql-tooltip">
@@ -140,6 +151,7 @@ VALUES (?, ?)
             </div>
         </div>
         
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
         <form method="POST" action="">
             <h3>Basic Information</h3>
             
@@ -159,7 +171,10 @@ VALUES (?, ?)
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" 
                        value="<?php echo htmlspecialchars($contact['email'] ?? ''); ?>">
+<<<<<<< HEAD
+=======
                 <small style="color: #6b7280; font-size: 12px;">Leave empty if not available</small>
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             </div>
             
             <div class="form-group">
@@ -215,6 +230,8 @@ VALUES (?, ?)
             </div>
         </form>
     </div>
+<<<<<<< HEAD
+=======
     
     <div style="margin-top: 20px; padding: 20px; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 8px;">
         <h3 style="color: #065f46; margin-bottom: 10px;">💡 Update Strategy: Delete + Insert</h3>
@@ -224,6 +241,7 @@ VALUES (?, ?)
             <p style="margin-top: 10px;"><strong>Transaction safety:</strong> In production, this should be wrapped in a database transaction.</p>
         </div>
     </div>
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
 </div>
 
 <?php include '../includes/footer.php'; ?>

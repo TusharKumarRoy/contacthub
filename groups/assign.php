@@ -86,6 +86,8 @@ include '../includes/header.php';
         
         <!-- Available Contacts (NOT IN group) -->
         <div class="table-container">
+<<<<<<< HEAD
+=======
             <div class="sql-info-icon">
                 ℹ️
                 <div class="sql-tooltip">
@@ -107,6 +109,7 @@ ORDER BY c.first_name, c.last_name
                 </div>
             </div>
             
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             <h2>Available Contacts (<?php echo $available_contacts->num_rows; ?>)</h2>
             
             <?php if ($available_contacts->num_rows > 0): ?>
@@ -142,6 +145,8 @@ ORDER BY c.first_name, c.last_name
         
         <!-- Current Members (IN group) -->
         <div class="table-container">
+<<<<<<< HEAD
+=======
             <div class="sql-info-icon">
                 ℹ️
                 <div class="sql-tooltip">
@@ -160,6 +165,7 @@ ORDER BY c.first_name, c.last_name
                 </div>
             </div>
             
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             <h2>Current Members (<?php echo $current_members->num_rows; ?>)</h2>
             
             <?php if ($current_members->num_rows > 0): ?>
@@ -195,6 +201,8 @@ ORDER BY c.first_name, c.last_name
         
     </div>
     
+<<<<<<< HEAD
+=======
     <div style="margin-top: 30px; padding: 15px; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 8px;">
         <div style="display: flex; align-items: center; gap: 10px;">
             <div class="inline-sql-info">
@@ -220,6 +228,7 @@ WHERE contact_id = ?
         <p style="margin: 10px 0 0 0; color: #047857;">Adding/removing contacts modifies the <code>contact_group_members</code> junction table that connects contacts with groups.</p>
     </div>
     
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
     <div style="margin-top: 20px;">
         <a href="list.php" class="btn-small btn-view">← Back to Groups</a>
     </div>

@@ -1,8 +1,11 @@
 
+<<<<<<< HEAD
+=======
 
 -- ========================================
 -- TABLE 1: USERS
 -- ========================================
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
 CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -26,7 +29,10 @@ CREATE TABLE contacts (
     notes TEXT,
     is_favorite BOOLEAN DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+<<<<<<< HEAD
+=======
     updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     CHECK (email LIKE '%@%' OR email IS NULL)
 );
@@ -57,6 +63,8 @@ CREATE TABLE contact_group_members (
 -- ========================================
 -- INSERT SAMPLE DATA
 -- ========================================
+<<<<<<< HEAD
+=======
 
 -- Users (password: password123)
 INSERT INTO users (username, email, password) VALUES
@@ -86,3 +94,4 @@ INSERT INTO contact_group_members (contact_id, group_id) VALUES
 (5, 2); -- Emma in Work
 
 SELECT 'Setup Complete!' AS Status;
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95

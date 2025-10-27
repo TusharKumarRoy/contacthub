@@ -60,7 +60,12 @@ include '../includes/header.php';
                             <td>
                                 <a href="assign.php?id=<?php echo $group['group_id']; ?>" class="btn-small btn-view">Manage Members</a>
                                 <a href="edit.php?id=<?php echo $group['group_id']; ?>" class="btn-small btn-edit">Edit</a>
+<<<<<<< HEAD
+                                <a href="delete.php?id=<?php echo $group['group_id']; ?>" class="btn-small btn-delete" 
+                                   onclick="return confirm('Delete this group? (Contacts will not be deleted)')">Delete</a>
+=======
                                 <a href="delete.php?id=<?php echo $group['group_id']; ?>" class="btn-small btn-delete">Delete</a>
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                             </td>
                         </tr>
                     <?php endwhile; ?>

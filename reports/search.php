@@ -34,6 +34,58 @@ include '../includes/header.php';
 	<p>Search contacts (name, email, phone, company or group).</p>
 
 	<div class="table-container" style="margin-bottom: 20px;">
+<<<<<<< HEAD
+		<form method="GET" action="">
+			<div style="display:flex; gap:10px; align-items:center;">
+				<input type="text" name="q" value="<?php echo htmlspecialchars($q); ?>" placeholder="Search..." style="flex:1; padding:8px;">
+				<button type="submit" class="btn-submit" style="padding:8px 16px;">Search</button>
+				<a href="search.php" class="btn-small btn-edit">Clear</a>
+			</div>
+		</form>
+	</div>
+
+	<?php if ($q === ''): ?>
+		<div class="table-container">
+			<p>Enter a search term above to find contacts.</p>
+		</div>
+	<?php else: ?>
+		<div class="table-container">
+			<h2>Results (<?php echo $results ? $results->num_rows : 0; ?>)</h2>
+			<?php if ($results && $results->num_rows > 0): ?>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Company</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php while ($r = $results->fetch_assoc()): ?>
+							<tr>
+								<td><?php echo htmlspecialchars($r['first_name'] . ' ' . $r['last_name']); ?></td>
+								<td><?php echo htmlspecialchars($r['email'] ?? 'N/A'); ?></td>
+								<td><?php echo htmlspecialchars($r['phone'] ?? 'N/A'); ?></td>
+								<td><?php echo htmlspecialchars($r['company'] ?? 'N/A'); ?></td>
+								<td>
+									<a href="../contacts/view.php?id=<?php echo $r['contact_id']; ?>" class="btn-small btn-view">View</a>
+								</td>
+							</tr>
+						<?php endwhile; ?>
+					</tbody>
+				</table>
+			<?php else: ?>
+				<p>No results for <strong><?php echo htmlspecialchars($q); ?></strong>.</p>
+			<?php endif; ?>
+		</div>
+	<?php endif; ?>
+</div>
+
+<?php include '../includes/footer.php'; ?>
+
+=======
         <div class="sql-info-icon">
             ℹ️
             <div class="sql-tooltip">
@@ -60,3 +112,4 @@ ORDER BY c.first_name, c.last_name
 -- %search%: Matches anywhere in the string
 -- OR: Returns rows matching ANY condition
 -- DISTINCT: Removes duplicate contacts
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95

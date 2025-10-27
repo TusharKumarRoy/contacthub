@@ -40,7 +40,11 @@ if (!empty($company_filter)) {
     $types .= "s";
 }
 
+<<<<<<< HEAD
+// Filter by group (using IN with subquery concept)
+=======
 // Filter by group
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
 if (!empty($group_filter)) {
     $sql .= " AND cgm.group_id = ?";
     $params[] = $group_filter;
@@ -82,6 +86,8 @@ include '../includes/header.php';
     
     <!-- Search and Filter Form -->
     <div class="table-container" style="margin-bottom: 20px;">
+<<<<<<< HEAD
+=======
         <div class="sql-info-icon">
             ℹ️
             <div class="sql-tooltip">
@@ -101,12 +107,17 @@ ORDER BY c.<?php echo $sort_by; ?> <?php echo $order; ?></div>
         </div>
         
         <h2>🔍 Search & Filter</h2>
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
         <form method="GET" action="">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
                 
                 <!-- Search Box (LIKE) -->
                 <div class="form-group">
+<<<<<<< HEAD
+                    <label>🔍 Search</label>
+=======
                     <label>🔎 Search</label>
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                     <input type="text" name="search" placeholder="Name, email, phone..." value="<?php echo htmlspecialchars($search); ?>">
                 </div>
                 
@@ -173,6 +184,8 @@ ORDER BY c.<?php echo $sort_by; ?> <?php echo $order; ?></div>
     
     <!-- Contacts Table -->
     <div class="table-container">
+<<<<<<< HEAD
+=======
         <div class="sql-info-icon">
             ℹ️
             <div class="sql-tooltip">
@@ -185,6 +198,7 @@ LEFT JOIN contact_group_members cgm
             </div>
         </div>
         
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
         <h2>Contacts (<?php echo $contacts->num_rows; ?> found)</h2>
         
         <?php if ($contacts->num_rows > 0): ?>
@@ -195,6 +209,10 @@ LEFT JOIN contact_group_members cgm
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Company</th>
+<<<<<<< HEAD
+                        <th>Status</th>
+=======
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -210,10 +228,19 @@ LEFT JOIN contact_group_members cgm
                             <td><?php echo htmlspecialchars($contact['email'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($contact['phone'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($contact['company'] ?? 'N/A'); ?></td>
+<<<<<<< HEAD
+                            <td><span class="badge badge-group">Active</span></td>
+                            <td>
+                                <a href="view.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-view">View</a>
+                                <a href="edit.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-edit">Edit</a>
+                                <a href="delete.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-delete" 
+                                   onclick="return confirm('Delete this contact?')">Delete</a>
+=======
                             <td>
                                 <a href="view.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-view">View</a>
                                 <a href="edit.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-edit">Edit</a>
                                 <a href="delete.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-delete">Delete</a>
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                             </td>
                         </tr>
                     <?php endwhile; ?>
