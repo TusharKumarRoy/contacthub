@@ -48,12 +48,8 @@ include '../includes/header.php';
             </div>
             <div>
                 <a href="edit.php?id=<?php echo $contact_id; ?>" class="btn-small btn-edit">✏️ Edit</a>
-<<<<<<< HEAD
                 <a href="delete.php?id=<?php echo $contact_id; ?>" class="btn-small btn-delete" 
                    onclick="return confirm('Delete this contact?')">🗑️ Delete</a>
-=======
-                <a href="delete.php?id=<?php echo $contact_id; ?>" class="btn-small btn-delete">🗑️ Delete</a>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             </div>
         </div>
         
@@ -63,7 +59,6 @@ include '../includes/header.php';
         <table style="margin-bottom: 20px;">
             <tr>
                 <td style="width: 200px;"><strong>Email:</strong></td>
-<<<<<<< HEAD
                 <td><?php echo htmlspecialchars($contact['email'] ?? 'Not provided'); ?></td>
             </tr>
             <tr>
@@ -73,17 +68,6 @@ include '../includes/header.php';
             <tr>
                 <td><strong>Company:</strong></td>
                 <td><?php echo htmlspecialchars($contact['company'] ?? 'Not provided'); ?></td>
-=======
-                <td><?php echo htmlspecialchars($contact['email']); ?></td>
-            </tr>
-            <tr>
-                <td><strong>Phone:</strong></td>
-                <td><?php echo htmlspecialchars($contact['phone']); ?></td>
-            </tr>
-            <tr>
-                <td><strong>Company:</strong></td>
-                <td><?php echo $contact['company'] ? htmlspecialchars($contact['company']) : 'Not provided'; ?></td>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             </tr>
         </table>
         
@@ -109,15 +93,7 @@ include '../includes/header.php';
         
         <div style="color: #888; font-size: 0.9em;">
             <p><strong>Created:</strong> <?php echo date('F j, Y g:i A', strtotime($contact['created_at'])); ?></p>
-<<<<<<< HEAD
             <p><strong>Last Updated:</strong> <?php echo date('F j, Y g:i A', strtotime($contact['updated_at'])); ?></p>
-=======
-            <?php if (!empty($contact['updated_at']) && $contact['updated_at'] != '0000-00-00 00:00:00' && $contact['updated_at'] != $contact['created_at']): ?>
-                <p><strong>Last Updated:</strong> <?php echo date('F j, Y g:i A', strtotime($contact['updated_at'])); ?></p>
-            <?php else: ?>
-                <p><strong>Last Updated:</strong> Never modified</p>
-            <?php endif; ?>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
         </div>
         
         <div style="margin-top: 20px;">

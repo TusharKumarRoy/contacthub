@@ -29,11 +29,7 @@ $stmt->execute();
 $total_groups = $stmt->get_result()->fetch_assoc()['total'];
 
 // Get recent contacts (ORDER BY with LIMIT)
-<<<<<<< HEAD
 $sql_recent = "SELECT contact_id, first_name, last_name, company, phone, is_favorite 
-=======
-$sql_recent = "SELECT contact_id, first_name, last_name, email, company, phone, is_favorite 
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                FROM contacts 
                WHERE user_id = ? 
                ORDER BY created_at DESC 
@@ -64,61 +60,18 @@ include 'includes/header.php';
     <!-- Statistics Cards -->
     <div class="dashboard-stats">
         <div class="stat-card">
-<<<<<<< HEAD
-=======
-            <div class="sql-info-icon">
-                ℹ️
-                <div class="sql-tooltip">-- SQL Concept: COUNT(*)
-
-SELECT COUNT(*) as total 
-FROM contacts 
-WHERE user_id = ?
-
--- Counts all contact rows for this user
--- Returns total number of contacts</div>
-            </div>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             <div class="icon">📇</div>
             <div class="number"><?php echo $total_contacts; ?></div>
             <div class="label">Total Contacts</div>
         </div>
         
         <div class="stat-card">
-<<<<<<< HEAD
-=======
-            <div class="sql-info-icon">
-                ℹ️
-                <div class="sql-tooltip">-- SQL Concept: SUM()
-
-SELECT SUM(is_favorite) as favorites 
-FROM contacts 
-WHERE user_id = ?
-
--- is_favorite is boolean (0 or 1)
--- SUM adds up all 1s = count of favorites
--- More efficient than COUNT with WHERE</div>
-            </div>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             <div class="icon">⭐</div>
             <div class="number"><?php echo $total_favorites; ?></div>
             <div class="label">Favorites</div>
         </div>
         
         <div class="stat-card">
-<<<<<<< HEAD
-=======
-            <div class="sql-info-icon">
-                ℹ️
-                <div class="sql-tooltip">-- SQL Concept: COUNT with WHERE
-
-SELECT COUNT(*) as total 
-FROM contact_groups_table 
-WHERE user_id = ?
-
--- Counts groups owned by this user
--- Filters by user_id before counting</div>
-            </div>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             <div class="icon">📁</div>
             <div class="number"><?php echo $total_groups; ?></div>
             <div class="label">Groups</div>
@@ -127,40 +80,15 @@ WHERE user_id = ?
     
     <!-- Recent Contacts -->
     <div class="table-container">
-<<<<<<< HEAD
-=======
-        <div class="sql-info-icon">
-            ℹ️
-            <div class="sql-tooltip">-- SQL Concept: ORDER BY + LIMIT
-
-SELECT contact_id, first_name, last_name, 
-       email, company, phone, is_favorite 
-FROM contacts 
-WHERE user_id = ? 
-ORDER BY created_at DESC 
-LIMIT 5
-
--- ORDER BY: Sorts by creation date
--- DESC: Newest first
--- LIMIT 5: Returns only first 5 results
--- Shows most recently added contacts</div>
-        </div>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
         <h2>Recent Contacts</h2>
         <?php if ($recent_contacts->num_rows > 0): ?>
             <table>
                 <thead>
                     <tr>
                         <th>Name</th>
-<<<<<<< HEAD
                         <th>Company</th>
                         <th>Phone</th>
                         <th>Status</th>
-=======
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Company</th>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -173,22 +101,12 @@ LIMIT 5
                                     <span class="badge badge-favorite">⭐</span>
                                 <?php endif; ?>
                             </td>
-<<<<<<< HEAD
                             <td><?php echo htmlspecialchars($contact['company'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($contact['phone'] ?? 'N/A'); ?></td>
                             <td><span class="badge badge-group">Active</span></td>
                             <td>
                                 <a href="contacts/view.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-view">View</a>
                                 <a href="contacts/edit.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-edit">Edit</a>
-=======
-                            <td><?php echo htmlspecialchars($contact['email'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($contact['phone'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($contact['company'] ?? 'N/A'); ?></td>
-                            <td>
-                                <a href="contacts/view.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-view">View</a>
-                                <a href="contacts/edit.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-edit">Edit</a>
-                                <a href="contacts/delete.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-delete">Delete</a>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                             </td>
                         </tr>
                     <?php endwhile; ?>
@@ -202,27 +120,6 @@ LIMIT 5
     <!-- Top Companies -->
     <?php if ($companies->num_rows > 0): ?>
         <div class="table-container" style="margin-top: 30px;">
-<<<<<<< HEAD
-=======
-            <div class="sql-info-icon">
-                ℹ️
-                <div class="sql-tooltip">-- SQL Concept: GROUP BY + COUNT + ORDER BY
-
-SELECT company, COUNT(*) as count 
-FROM contacts 
-WHERE user_id = ? 
-  AND company IS NOT NULL
-GROUP BY company 
-ORDER BY count DESC 
-LIMIT 5
-
--- GROUP BY: Groups contacts by company name
--- COUNT(*): Counts contacts in each group
--- ORDER BY count DESC: Highest counts first
--- LIMIT 5: Top 5 companies only
--- Shows which companies have most contacts</div>
-            </div>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
             <h2>Contacts by Company</h2>
             <table>
                 <thead>

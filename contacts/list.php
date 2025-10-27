@@ -40,11 +40,7 @@ if (!empty($company_filter)) {
     $types .= "s";
 }
 
-<<<<<<< HEAD
 // Filter by group (using IN with subquery concept)
-=======
-// Filter by group
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
 if (!empty($group_filter)) {
     $sql .= " AND cgm.group_id = ?";
     $params[] = $group_filter;
@@ -86,38 +82,12 @@ include '../includes/header.php';
     
     <!-- Search and Filter Form -->
     <div class="table-container" style="margin-bottom: 20px;">
-<<<<<<< HEAD
-=======
-        <div class="sql-info-icon">
-            ℹ️
-            <div class="sql-tooltip">
-                <span class="sql-label">SQL Concepts: WHERE, LIKE, LEFT JOIN, ORDER BY</span>
-                <div class="sql-query">SELECT DISTINCT c.contact_id, c.first_name, c.last_name, 
-       c.email, c.phone, c.company, c.is_favorite 
-FROM contacts c
-LEFT JOIN contact_group_members cgm 
-  ON c.contact_id = cgm.contact_id
-WHERE c.user_id = ?
-  AND (c.first_name LIKE ? OR c.last_name LIKE ? ...)
-  AND c.company = ?
-  AND cgm.group_id = ?
-  AND c.is_favorite = 1
-ORDER BY c.<?php echo $sort_by; ?> <?php echo $order; ?></div>
-            </div>
-        </div>
-        
-        <h2>🔍 Search & Filter</h2>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
         <form method="GET" action="">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
                 
                 <!-- Search Box (LIKE) -->
                 <div class="form-group">
-<<<<<<< HEAD
                     <label>🔍 Search</label>
-=======
-                    <label>🔎 Search</label>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                     <input type="text" name="search" placeholder="Name, email, phone..." value="<?php echo htmlspecialchars($search); ?>">
                 </div>
                 
@@ -184,21 +154,6 @@ ORDER BY c.<?php echo $sort_by; ?> <?php echo $order; ?></div>
     
     <!-- Contacts Table -->
     <div class="table-container">
-<<<<<<< HEAD
-=======
-        <div class="sql-info-icon">
-            ℹ️
-            <div class="sql-tooltip">
-                <span class="sql-label">SQL Concept: DISTINCT with LEFT JOIN</span>
-                <div class="sql-query">-- Ensures unique contacts even with multiple group memberships
-SELECT DISTINCT c.* 
-FROM contacts c
-LEFT JOIN contact_group_members cgm 
-  ON c.contact_id = cgm.contact_id</div>
-            </div>
-        </div>
-        
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
         <h2>Contacts (<?php echo $contacts->num_rows; ?> found)</h2>
         
         <?php if ($contacts->num_rows > 0): ?>
@@ -209,10 +164,7 @@ LEFT JOIN contact_group_members cgm
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Company</th>
-<<<<<<< HEAD
                         <th>Status</th>
-=======
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -228,19 +180,12 @@ LEFT JOIN contact_group_members cgm
                             <td><?php echo htmlspecialchars($contact['email'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($contact['phone'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($contact['company'] ?? 'N/A'); ?></td>
-<<<<<<< HEAD
                             <td><span class="badge badge-group">Active</span></td>
                             <td>
                                 <a href="view.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-view">View</a>
                                 <a href="edit.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-edit">Edit</a>
                                 <a href="delete.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-delete" 
                                    onclick="return confirm('Delete this contact?')">Delete</a>
-=======
-                            <td>
-                                <a href="view.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-view">View</a>
-                                <a href="edit.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-edit">Edit</a>
-                                <a href="delete.php?id=<?php echo $contact['contact_id']; ?>" class="btn-small btn-delete">Delete</a>
->>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
                             </td>
                         </tr>
                     <?php endwhile; ?>
