@@ -22,6 +22,7 @@
             <a href="<?php echo $base_path; ?>/contacts/list.php">Contacts</a>
             <a href="<?php echo $base_path; ?>/groups/list.php">Groups</a>
             <a href="<?php echo $base_path; ?>/reports/statistics.php">Reports</a>
+            <a href="<?php echo $base_path; ?>/reports/sql-features.php">SQL Features</a>
             <a href="<?php echo $base_path; ?>/logout.php">Logout</a>
         </nav>
     </div>

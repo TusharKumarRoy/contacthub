@@ -1,0 +1,9 @@
+<?php
+// Environment configuration
+return [
+    'DB_HOST' => 'sql211.infinityfree.com',
+    'DB_NAME' => 'if0_40251129_contacthub_database',
+    'DB_USER' => 'if0_40251129',
+    'DB_PASS' => 'ramanujan1887',
+];
+?>
