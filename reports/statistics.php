@@ -223,4 +223,9 @@ LIMIT 10
 	</div>
 </div>
 
+<<<<<<< HEAD
 <?php include '../includes/footer.php'; ?>
+
+=======
+<?php include '../includes/footer.php'; ?>
+>>>>>>> 473ac1af8f281af4159fef28908c9c79dd496b95
